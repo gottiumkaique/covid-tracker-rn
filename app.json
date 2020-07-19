@@ -4,9 +4,9 @@
     "slug": "covid-mobile",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/splash.png",
+    "icon": "./assets/favicon.png",
     "splash": {
-      "image": "./assets/icon.png",
+      "image": "./assets/splash-screen.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
