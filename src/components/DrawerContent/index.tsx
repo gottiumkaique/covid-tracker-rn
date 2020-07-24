@@ -1,86 +1,54 @@
 import React from "react"
 import { 
-    View, 
-    StyleSheet, 
-    Text, 
-    Image, 
-    StyleProp, 
-    ViewStyle
-} from "react-native"
+  Section, 
+  LogoSection, 
+  AppName, 
+  Logo, 
+  MenuItem, 
+  LabelMenuItem 
+} from "./styles"
 
 import { 
-    DrawerContentScrollView, 
-    DrawerContentComponentProps 
+  DrawerContentScrollView, 
+  DrawerContentComponentProps 
 } from "@react-navigation/drawer"
-import { RectButton } from "react-native-gesture-handler"
 
-interface menuItem {
-    children: React.ReactNode
-    style?: StyleProp<ViewStyle>
-    onPress?(): any
-}
-
-const MenuItem: React.FC <menuItem> = props => {
-    return (
-        <RectButton 
-            style={styles.menuItem}
-            onPress={ props.onPress }
-        >
-            {props.children}
-        </RectButton>
-    )
-}
+import { 
+  AntDesign,
+  Octicons,
+  Feather
+} from "@expo/vector-icons"
 
 const DrawerContent: React.FC <DrawerContentComponentProps> = props => {
-    return (
-        <DrawerContentScrollView>
-            <View 
-                style={styles.logoMenu}
-            >
-                <Image 
-                    source={ require("../../img/icon.png") } 
-                    resizeMode="center" 
-                    style={{width: 310, height: 150}}
-                />
-            </View>
-            <View>
-                <MenuItem onPress={ () => props.navigation.navigate("home") }>
-                    <Text style={{fontSize: 16, fontWeight: "600"}}>
-                        Início
-                    </Text>
-                </MenuItem>
-                <MenuItem onPress={ () => props.navigation.navigate("prevent-methods") }>
-                    <Text style={{fontSize: 16, fontWeight: "600"}}>
-                        Métodos de Prevenção
-                    </Text>
-                </MenuItem>
-                <MenuItem 
-                    onPress={ () => props.navigation.navigate("about") }
-                >
-                    <Text style={{fontSize: 16, fontWeight: "600"}}>
-                        Sobre
-                    </Text>
-                </MenuItem>
-            </View>
-        </DrawerContentScrollView>
-    )
-}
+  return (
+    <DrawerContentScrollView>
+      <LogoSection>
+          <Logo 
+            source={require("../../img/covid.png")} 
+            resizeMode="center"
+            style={{height: 60}}
+          />
+          <AppName>COVID-19 Tracker</AppName>
+      </LogoSection>
+      <Section>
+        <MenuItem onPress={() => props.navigation.navigate("Home")}>
+          <AntDesign name="home" size={22} />
+          <LabelMenuItem>Rastreador COVID-19</LabelMenuItem>
+        </MenuItem>
 
-const styles = StyleSheet.create({
-    menuItem: {
-        paddingVertical: 12,
-        paddingHorizontal: 20,
-    },
-    logoMenu: {
-        flex: 1, 
-        justifyContent: "center", 
-        height: 190,
-        marginLeft: -60,
-        // backgroundColor: "#eee",
-        borderBottomWidth: 1,
-        borderColor: "#ccc",
-        marginBottom: 6,
-    }
-})
+        <MenuItem onPress={() => props.navigation.navigate("PreventMethods")}>
+          <Feather name="shield" size={22} />
+          <LabelMenuItem>Métodos de Prevenção</LabelMenuItem>
+        </MenuItem>
+
+        <MenuItem onPress={() => props.navigation.navigate("About")}>
+          <Octicons name="info" size={22} />
+          <LabelMenuItem>Sobre</LabelMenuItem>
+        </MenuItem>
+
+      </Section>
+    </DrawerContentScrollView>
+  )
+}
 
 export default DrawerContent

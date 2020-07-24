@@ -1,12 +1,12 @@
 {
   "expo": {
-    "name": "covid-mobile",
-    "slug": "covid-mobile",
+    "name": "covid-mobile-2",
+    "slug": "covid-mobile-2",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/favicon.png",
+    "icon": "./assets/icon.png",
     "splash": {
-      "image": "./assets/splash-screen.png",
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

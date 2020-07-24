@@ -1,16 +1,15 @@
 import React from "react"
-import { StatusBar, SafeAreaView, Platform } from "react-native"
 import Routes from "./src/routes"
+import { Wrapper } from "./src/styles"
+import { StatusBar } from "react-native"
 
-const App = () => (
-  <>
-    <StatusBar barStyle="dark-content" backgroundColor="#fff" translucent />
-    <SafeAreaView
-      style={{flex: 1, marginTop: Platform.OS === "android" ? StatusBar.currentHeight : 0}}
-    >
-      <Routes/>
-    </SafeAreaView>
+export default function App() {
+  return (
+    <>
+      <StatusBar barStyle="dark-content" backgroundColor="#fff" translucent />
+      <Wrapper>
+        <Routes/>
+      </Wrapper>
     </>
-)
-
-export default App
+  )
+}
